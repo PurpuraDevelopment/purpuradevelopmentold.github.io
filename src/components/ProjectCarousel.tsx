@@ -1,0 +1,101 @@
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+}
+
+const projects: Project[] = [
+  {
+    id: 1,
+    title: 'E-commerce Innovador',
+    description: 'Plataforma de comercio electrónico con IA para recomendaciones personalizadas.',
+    image: '/images/portfolio/ecommerce.jpg',
+  },
+  {
+    id: 2,
+    title: 'App de Fitness AR',
+    description: 'Aplicación móvil de fitness que utiliza realidad aumentada para guiar los ejercicios.',
+    image: '/images/portfolio/fitness-ar.jpg',
+  },
+  {
+    id: 3,
+    title: 'Dashboard IoT',
+    description: 'Panel de control para monitorear y controlar dispositivos IoT en tiempo real.',
+    image: '/images/portfolio/iot-dashboard.jpg',
+  },
+  {
+    id: 4,
+    title: 'Plataforma Educativa',
+    description: 'Sistema de gestión de aprendizaje con características de gamificación.',
+    image: '/images/portfolio/edu-platform.jpg',
+  },
+];
+
+const ProjectCarousel: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length);
+  };
+
+  return (
+    <div className="relative w-full max-w-4xl mx-auto h-[500px] overflow-hidden rounded-lg shadow-xl">
+      <AnimatePresence initial={false} custom={currentIndex}>
+        <motion.div
+          key={currentIndex}
+          custom={currentIndex}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          className="absolute inset-0"
+        >
+          <img
+            src={projects[currentIndex].image}
+            alt={projects[currentIndex].title}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-purpureus to-transparent opacity-75"></div>
+          <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <h3 className="text-2xl font-bold mb-2">{projects[currentIndex].title}</h3>
+            <p className="text-sm">{projects[currentIndex].description}</p>
+          </div>
+        </motion.div>
+      </AnimatePresence>
+      <button
+        onClick={prevSlide}
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-2 focus:outline-none"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 text-purpureus">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-2 focus:outline-none"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 text-purpureus">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  );
+};
+
+export default ProjectCarousel;
