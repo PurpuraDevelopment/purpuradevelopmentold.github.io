@@ -29,18 +29,61 @@ import { Image } from 'astro:assets';
 </section>
 
 <script type="text/javascript">
-  // Selección de las secciones y el scroll suave
-  document.querySelectorAll('.scroll-link').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      
-      const targetId = this.getAttribute('href').substring(1);  // Obtener el id del destino (sin el '#')
-      const targetElement = document.getElementById(targetId);
+  // Verificar si el navegador soporta smooth scroll
+  if ('scrollBehavior' in document.documentElement.style) {
+    // Si el navegador soporta smooth scroll, usar scrollIntoView con comportamiento suave
+    document.querySelectorAll('.scroll-link').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href').substring(1);  // Obtener el id del destino (sin el '#')
+        const targetElement = document.getElementById(targetId);
 
-      targetElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
       });
     });
-  });
+  } else {
+    // Si el navegador no soporta smooth scroll, usar una solución con JavaScript
+    document.querySelectorAll('.scroll-link').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href').substring(1);  // Obtener el id del destino (sin el '#')
+        const targetElement = document.getElementById(targetId);
+
+        // Simular el scroll suave con JavaScript
+        const startPosition = window.pageYOffset;
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        const distance = targetPosition - startPosition;
+        const duration = 500; // Duración del scroll en milisegundos
+        let startTime = null;
+
+        function animation(currentTime) {
+          if (startTime === null) startTime = currentTime;
+          const timeElapsed = currentTime - startTime;
+          const scrollAmount = ease(timeElapsed, startPosition, distance, duration);
+          window.scrollTo(0, scrollAmount);
+
+          if (timeElapsed < duration) {
+            requestAnimationFrame(animation);
+          } else {
+            window.scrollTo(0, targetPosition);
+          }
+        }
+
+        function ease(t, b, c, d) {
+          const easeInOutQuad = t => {
+            if ((t /= d / 2) < 1) return c / 2 * t * t + b;
+            return -c / 2 * (--t * (t - 2) - 1) + b;
+          };
+          return easeInOutQuad(t);
+        }
+
+        requestAnimationFrame(animation);
+      });
+    });
+  }
 </script>
