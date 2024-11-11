@@ -1,0 +1,41 @@
+---
+import { PortfolioGallery } from './PortfolioGallery';
+
+const portfolioItems = [
+  {
+    id: 1,
+    title: 'E-commerce Innovador',
+    description: 'Plataforma de comercio electrónico con IA para recomendaciones personalizadas.',
+    image: '/images/portfolio/ecommerce.jpg',
+    technologies: ['React', 'Node.js', 'MongoDB', 'TensorFlow'],
+  },
+  {
+    id: 2,
+    title: 'App de Fitness AR',
+    description: 'Aplicación móvil de fitness que utiliza realidad aumentada para guiar los ejercicios.',
+    image: '/images/portfolio/fitness-ar.jpg',
+    technologies: ['React Native', 'ARKit', 'ARCore', 'Firebase'],
+  },
+  {
+    id: 3,
+    title: 'Dashboard IoT',
+    description: 'Panel de control para monitorear y controlar dispositivos IoT en tiempo real.',
+    image: '/images/portfolio/iot-dashboard.jpg',
+    technologies: ['Vue.js', 'Express', 'Socket.io', 'InfluxDB'],
+  },
+  {
+    id: 4,
+    title: 'Plataforma Educativa',
+    description: 'Sistema de gestión de aprendizaje con características de gamificación.',
+    image: '/images/portfolio/edu-platform.jpg',
+    technologies: ['Next.js', 'GraphQL', 'PostgreSQL', 'Redis'],
+  },
+];
+---
+
+<section id="portfolio" class="py-20 bg-gray-900">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center text-white mb-12">Nuestro Portafolio</h2>
+    <PortfolioGallery items={portfolioItems} client:visible />
+  </div>
+</section>

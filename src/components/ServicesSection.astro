@@ -1,0 +1,25 @@
+---
+import ServiceCard from './ServiceCard';
+
+const services = [
+  { title: 'Desarrollo Web', description: 'Creamos sitios web modernos y responsivos', icon: 'web' },
+  { title: 'Aplicaciones Móviles', description: 'Desarrollamos apps nativas y multiplataforma', icon: 'mobile' },
+  { title: 'Inteligencia Artificial', description: 'Implementamos soluciones de IA avanzadas', icon: 'ai' },
+];
+---
+
+<section id="services" class="py-20 bg-gray-900">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center text-white mb-12">Nuestros Servicios</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {services.map((service) => (
+        <ServiceCard 
+          title={service.title} 
+          description={service.description} 
+          icon={service.icon}
+          client:visible
+        />
+      ))}
+    </div>
+  </div>
+</section>

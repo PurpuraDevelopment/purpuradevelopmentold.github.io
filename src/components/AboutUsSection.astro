@@ -1,0 +1,45 @@
+---
+import { TeamMember } from './TeamMember';
+
+const teamMembers = [
+  { name: 'DevRipley', role: 'CEO & Fundadora', image: '/images/ana.jpg' },
+  { name: 'Carlos Rodríguez', role: 'CTO', image: '/images/carlos.jpg' },
+  { name: 'Elena Martínez', role: 'Lead Designer', image: '/images/elena.jpg' },
+];
+---
+
+<section id="about" class="py-20 bg-gray-900">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center text-white mb-12">Nuestro Equipo</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {teamMembers.map((member) => (
+        <TeamMember 
+          name={member.name}
+          role={member.role}
+          image={member.image}
+          client:visible
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.utils.toArray('.team-member').forEach((member, i) => {
+    gsap.from(member, {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: member,
+        start: 'top 80%',
+      },
+    });
+  });
+</script>
