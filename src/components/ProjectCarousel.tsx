@@ -12,19 +12,19 @@ const projects: Project[] = [
   {
     id: 1,
     title: 'Purpura Invoice',
-    description: 'Plataforma de comercio electrónico con IA para recomendaciones personalizadas.',
+    description: 'Sistema de Ventas Moderno Multifuncional Compilado en el lenguaje Java.',
     image: 'src/images/projects/purpurainvoice.jpg',
   },
   {
     id: 2,
     title: 'Estrella Services',
-    description: 'Aplicación móvil de fitness que utiliza realidad aumentada para guiar los ejercicios.',
+    description: 'Sitio web donde podras adquirir planes de alojamiento web servidores etc..',
     image: 'src/images/projects/estrellaservices.jpg',
   },
   {
     id: 3,
     title: 'Socios Conectados',
-    description: 'Panel de control para monitorear y controlar dispositivos IoT en tiempo real.',
+    description: 'Red social en la cual puedes compartir con amigos ahorrar socialcoins y ganar dinero.',
     image: 'src/images/projects/sociosconectados.jpg',
   },
 ];
