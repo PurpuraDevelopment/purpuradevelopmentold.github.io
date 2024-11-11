@@ -1,4 +1,11 @@
 {
+  "name": "purpura-development",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",       
+    "build": "astro build",     
+    "preview": "astro preview" 
+  },
   "dependencies": {
     "all": "^0.0.0",
     "astro": "^4.16.10",
@@ -9,5 +16,8 @@
     "react": "^18.3.1",
     "tailwindcss": "^3.4.14",
     "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "@astro/types": "^2.0.0"
   }
 }
