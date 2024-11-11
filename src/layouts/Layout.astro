@@ -16,20 +16,22 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <ViewTransitions />
   </head>
-  <body class="bg-black text-white">
+  <body class="bg-tea-rose-red text-purpureus">
     <slot />
     <style is:global>
-      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-      
       :root {
-        --color-purple: #8A2BE2;
-        --color-blue-neon: #00FFFF;
+        --color-tea-rose-red: #d6bbc0;
+        --color-lilac: #d0a3bf;
+        --color-sky-magenta: #c585b3;
+        --color-sky-magenta-2: #bc69aa;
+        --color-purpureus: #af42ae;
       }
       
       html {
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Poppins', sans-serif;
         scroll-behavior: smooth;
       }
       
