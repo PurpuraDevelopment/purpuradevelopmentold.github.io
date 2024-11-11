@@ -1,14 +1,45 @@
 ---
-import { HeroBackground } from './HeroBackground';
+import { Image } from 'astro:assets';
 ---
 
-<section class="relative h-screen flex items-center justify-center text-white">
-  <HeroBackground client:load />
-  <div class="z-10 text-center">
-    <h1 class="text-5xl font-bold mb-4">Purpura Development</h1>
-    <p class="text-2xl mb-8">Construimos el futuro digital</p>
-    <a href="#contact" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition duration-300">
+<section class="relative h-screen flex items-center justify-center bg-gradient-to-br from-purple-600 to-purple-900 overflow-hidden">
+  <div class="absolute inset-0">
+    <div class="absolute inset-0 bg-purple-800 opacity-40"></div>
+    <div class="absolute inset-0 bg-[url('src/images/pattern/formal-invitation.svg')] opacity-20"></div>
+  </div>
+  <div class="relative z-10 text-center px-4">
+    <h1 class="text-5xl md:text-7xl font-bold mb-4 text-white">
+      <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-purple-300">
+        Purpura Development
+      </span>
+    </h1>
+    <p class="text-2xl md:text-3xl mb-8 text-white">Construimos el futuro digital</p>
+    <a href="#contact" class="bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-8 rounded-full transition duration-300 text-lg">
       Contáctanos
     </a>
   </div>
+  <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <a href="#contact" class="scroll-link">
+      <svg class="w-8 h-8 text-white hover:text-purple-300 transition duration-300" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+        <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </a>
+  </div>
 </section>
+
+<script type="text/javascript">
+  // Selección de las secciones y el scroll suave
+  document.querySelectorAll('.scroll-link').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href').substring(1);  // Obtener el id del destino (sin el '#')
+      const targetElement = document.getElementById(targetId);
+
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    });
+  });
+</script>
