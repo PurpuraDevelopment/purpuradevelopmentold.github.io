@@ -14,17 +14,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository using git
+      - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install dependencies
         run: npm install
       - name: Build the site
         run: npm run build
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist
-          path: dist
 
   deploy:
     needs: build
@@ -33,14 +28,11 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout your repository
+      - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Download artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: dist
-          path: dist
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         with:
-          folder: dist
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main         # Utiliza la rama `main` para el despliegue
+          folder: dist         # Carpeta 'dist' generada por el build
