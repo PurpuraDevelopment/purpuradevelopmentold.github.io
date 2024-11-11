@@ -1,13 +1,10 @@
-name: Deploy to GitHub Pages Purpura
+name: Deploy to GitHub Pages
 
 on:
-  # Se ejecuta cada vez que hay un push en la rama `main`
   push:
     branches: [ main ]
-  # Permite ejecutar manualmente desde la pestaña de Actions en GitHub
   workflow_dispatch:
 
-# Permisos necesarios para clonar el repositorio y crear un deployment en Pages
 permissions:
   contents: read
   pages: write
@@ -17,13 +14,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository using git
+      - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Install, build, and upload your site
+
+      - name: Install, build, and upload site
         uses: withastro/action@v3
         with:
-          node-version: 20 # Puedes cambiar esta versión de Node si lo prefieres
-          package-manager: npm # Cambia `npm` a `yarn` o `pnpm` si usas otro gestor de paquetes
+          node-version: 20
+          package-manager: npm
 
   deploy:
     needs: build
@@ -35,3 +33,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          folder: './dist'  # Aquí es donde debes apuntar a la carpeta dist/
