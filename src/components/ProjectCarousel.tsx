@@ -13,19 +13,19 @@ const projects: Project[] = [
     id: 1,
     title: 'Purpura Invoice',
     description: 'Sistema de Ventas Moderno Multifuncional Compilado en el lenguaje Java.',
-    image: 'src/images/projects/purpurainvoice.jpg',
+    image: 'images/projects/purpurainvoice.jpg',
   },
   {
     id: 2,
     title: 'Estrella Services',
     description: 'Sitio web donde podras adquirir planes de alojamiento web servidores etc..',
-    image: 'src/images/projects/estrellaservices.jpg',
+    image: 'images/projects/estrellaservices.jpg',
   },
   {
     id: 3,
     title: 'Socios Conectados',
     description: 'Red social en la cual puedes compartir con amigos ahorrar socialcoins y ganar dinero.',
-    image: 'src/images/projects/sociosconectados.jpg',
+    image: 'images/projects/sociosconectados.jpg',
   },
 ];
 
