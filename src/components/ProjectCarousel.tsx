@@ -65,7 +65,7 @@ const ProjectCarousel: React.FC = () => {
             alt={projects[currentIndex].title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-purpureus to-transparent opacity-75"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-purple-600 to-transparent opacity-75"></div>
           <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
             <h3 className="text-2xl font-bold mb-2">{projects[currentIndex].title}</h3>
             <p className="text-sm">{projects[currentIndex].description}</p>

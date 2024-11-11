@@ -8,7 +8,7 @@ module.exports = {
           'lilac': '#d0a3bf',
           'sky-magenta': '#c585b3',
           'sky-magenta-2': '#bc69aa',
-          'purpureus': '#af42ae',
+          'purpureus': '#bb66b4',
         },
         fontFamily: {
           sans: ['Poppins', 'sans-serif'],
