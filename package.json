@@ -2,11 +2,12 @@
   "name": "purpura-development",
   "version": "1.0.0",
   "scripts": {
-    "dev": "astro dev",       
-    "build": "astro build",     
-    "preview": "astro preview" 
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "dependencies": {
+    "@astrojs/react": "^3.6.2",
     "all": "^0.0.0",
     "astro": "^4.16.10",
     "astrojs": "^0.1.3",
