@@ -11,27 +11,21 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: 'E-commerce Innovador',
+    title: 'Purpura Invoice',
     description: 'Plataforma de comercio electrónico con IA para recomendaciones personalizadas.',
-    image: '/images/portfolio/ecommerce.jpg',
+    image: 'src/images/projects/purpurainvoice.jpg',
   },
   {
     id: 2,
-    title: 'App de Fitness AR',
+    title: 'Estrella Services',
     description: 'Aplicación móvil de fitness que utiliza realidad aumentada para guiar los ejercicios.',
-    image: '/images/portfolio/fitness-ar.jpg',
+    image: 'src/images/projects/estrellaservices.jpg',
   },
   {
     id: 3,
-    title: 'Dashboard IoT',
+    title: 'Socios Conectados',
     description: 'Panel de control para monitorear y controlar dispositivos IoT en tiempo real.',
-    image: '/images/portfolio/iot-dashboard.jpg',
-  },
-  {
-    id: 4,
-    title: 'Plataforma Educativa',
-    description: 'Sistema de gestión de aprendizaje con características de gamificación.',
-    image: '/images/portfolio/edu-platform.jpg',
+    image: 'src/images/projects/sociosconectados.jpg',
   },
 ];
 

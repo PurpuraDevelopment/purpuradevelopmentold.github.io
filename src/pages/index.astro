@@ -6,13 +6,16 @@ import PortfolioSection from '../components/PortfolioSection.astro';
 import AboutUsSection from '../components/AboutUsSection.astro';
 import ContactSection from '../components/ContactSection.astro';
 import Footer from '../components/Footer.astro';
+import '../styles/global.css'; // Asegúrate de crear este archivo
 ---
 
 <Layout title="Purpura Development - Construimos el futuro digital">
-  <HeroSection />
-  <ServicesSection />
-  <PortfolioSection />
-  <AboutUsSection />
-  <ContactSection />
-  <Footer />
+  <main class="font-sans bg-tea-rose-red text-purpureus">
+    <HeroSection />
+    <ServicesSection />
+    <PortfolioSection />
+    <AboutUsSection />
+    <ContactSection />
+    <Footer />
+  </main>
 </Layout>

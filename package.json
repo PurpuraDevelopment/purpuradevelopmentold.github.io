@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^3.6.2",
+    "@astrojs/tailwind": "^5.1.2",
     "all": "^0.0.0",
     "astro": "^4.16.10",
     "astrojs": "^0.1.3",
