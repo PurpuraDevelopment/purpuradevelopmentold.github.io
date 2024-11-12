@@ -14,11 +14,12 @@
     "gsap": "^3.12.5",
     "motion": "^10.18.0",
     "react": "^18.3.1",
+    "react-icons": "^5.3.0",
     "tailwindcss": "^3.4.14",
     "three": "^0.170.0"
   },
   "devDependencies": {
-    "astrojs": "^0.1.3",
-    "astro": "^4.16.10"
+    "astro": "^4.16.10",
+    "astrojs": "^0.1.3"
   }
 }

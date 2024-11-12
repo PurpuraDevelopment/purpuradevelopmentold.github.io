@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { FaLaptopCode, FaMobileAlt, FaRobot } from 'react-icons/fa';
 
 interface ServiceCardProps {
   title: string;
@@ -10,6 +11,12 @@ interface ServiceCardProps {
 const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon }) => {
   const [isHovered, setIsHovered] = useState(false);
 
+  const icons: { [key: string]: JSX.Element } = {
+    web: <FaLaptopCode className="text-indigo-500" />,
+    ai: <FaRobot className="text-indigo-500" />,
+    mobile: <FaMobileAlt className="text-indigo-500" />,
+  };
+
   return (
     <motion.div
       className="bg-gray-800 p-6 rounded-lg shadow-lg"
@@ -17,7 +24,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon }) =
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
-      <div className="text-4xl mb-4">{/* Renderizar icono basado en la prop 'icon' */}</div>
+      <div className="text-4xl mb-4">
+        {icons[icon] || <FaLaptopCode className="text-indigo-500" />} {/* Ícono predeterminado */}
+      </div>
       <h3 className="text-2xl font-bold mb-2 text-white">{title}</h3>
       <p className="text-gray-300">{description}</p>
       {isHovered && (
