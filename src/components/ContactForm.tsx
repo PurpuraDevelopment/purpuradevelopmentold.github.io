@@ -13,9 +13,9 @@ export const ContactForm: React.FC = () => {
 
     // Construir el mensaje para WhatsApp
     const message = `
-      *Nuevo mensaje de contacto*%0A
-      *Nombre:* ${formState.name}%0A
-      *Email:* ${formState.email}%0A
+      *Nuevo mensaje de contacto*
+      *Nombre:* ${formState.name}
+      *Email:* ${formState.email}
       *Mensaje:* ${formState.message}
     `;
     
