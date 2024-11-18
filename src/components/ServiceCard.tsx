@@ -29,15 +29,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon }) =
       </div>
       <h3 className="text-2xl font-bold mb-2 text-white">{title}</h3>
       <p className="text-gray-300">{description}</p>
-      {isHovered && (
-        <motion.button
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="mt-4 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Conocer más
-        </motion.button>
-      )}
     </motion.div>
   );
 };
