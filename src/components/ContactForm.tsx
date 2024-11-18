@@ -10,8 +10,24 @@ export const ContactForm: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Aquí iría la lógica para enviar el formulario
-    console.log('Formulario enviado:', formState);
+
+    // Construir el mensaje para WhatsApp
+    const message = `
+      *Nuevo mensaje de contacto*%0A
+      *Nombre:* ${formState.name}%0A
+      *Email:* ${formState.email}%0A
+      *Mensaje:* ${formState.message}
+    `;
+    
+    // El número de teléfono debe estar en formato internacional sin el '+' (ejemplo: 123456789)
+    const phoneNumber = '8299834389'; 
+
+    // Crear el enlace de WhatsApp
+    const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+    // Abrir el enlace de WhatsApp en una nueva ventana
+    window.open(whatsappLink, '_blank');
+
     // Resetear el formulario
     setFormState({ name: '', email: '', message: '' });
   };
