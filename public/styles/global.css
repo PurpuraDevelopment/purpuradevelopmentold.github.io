@@ -4,3 +4,18 @@
 @tailwind utilities;
 
 /* Aquí puedes agregar estilos globales adicionales si es necesario */
+
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #af42ae; /* Cambia esto según el diseño */
+  }
+  
+  .swiper-pagination-bullet {
+    background: #af42ae; /* Color de los puntos */
+  }
+  
