@@ -24,7 +24,7 @@ export const TeamMember: React.FC<TeamMemberProps> = ({ name, role, image }) => 
           className="mt-4 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
           onClick={() => setIsExpanded(!isExpanded)}
         >
-          {isExpanded ? 'Menos info' : 'Más info'}
+          {isExpanded ? 'Proximamente' : 'Proximamente'}
         </motion.button>
         {isExpanded && (
           <motion.div
